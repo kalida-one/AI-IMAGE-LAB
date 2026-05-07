@@ -70,7 +70,7 @@ cd backend
 python app.py
 ```
 
-访问 http://localhost:5000
+访问 http://localhost:5005
 
 > **注意：** 由于模型文件较大，本仓库不包含模型文件。请从网盘下载并解压到 `backend/models/` 目录：
 > 

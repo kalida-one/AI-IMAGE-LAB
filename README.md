@@ -59,7 +59,7 @@ http://www.junchuang.top:12723
 **部署方法：**
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/ai-image-lab.git
+git clone https://github.com/kalida-one/ai-image-lab.git
 cd ai-image-lab
 
 # 安装 Python 依赖
@@ -187,7 +187,7 @@ ai-image-lab/
 
 ## 📄 开源协议
 
-MIT License © 2025 AI IMAGE LAB
+MIT License © 2026 AI IMAGE LAB
 
 ---
 

@@ -29,25 +29,25 @@
 
 ---
 
-## 🚀 两种部署方式
+## 🚀 两种使用方式
 
-本项目提供两种部署方式，根据你的需求选择：
+本项目提供两种使用方式，根据你的需求选择：
 
-### 方式一：GitHub Pages 静态版（推荐体验）
+### 方式一：在线体验版（推荐体验）
 
 **适合：** 快速体验、在线分享、无需本地环境
 
 - 零配置，打开浏览器即用
-- 图像模型从 GitHub 仓库加载
-- LLM 模型从 HuggingFace 镜像站自动下载到浏览器缓存
+- 图像模型从服务器加载
+- LLM 模型自动下载到浏览器缓存
 - 首次加载需下载模型，后续自动缓存秒开
 
-**部署方法：**
-1. Fork 本仓库
-2. 启用 GitHub Pages（Settings → Pages → Source 选择 main 分支）
-3. 访问 `https://yourusername.github.io/ai-image-lab`
+**访问地址：**
+```
+http://www.junchuang.top:12723
+```
 
-### 方式二：Flask 本地版（推荐开发）
+### 方式二：本地部署版（推荐开发）
 
 **适合：** 本地开发、离线使用、内网部署、二次开发
 
@@ -72,11 +72,16 @@ python app.py
 
 访问 http://localhost:5000
 
-> **注意：** Flask 版本已包含所有模型文件（约 820MB），无需额外下载。
+> **注意：** 由于模型文件较大，本仓库不包含模型文件。请从网盘下载并解压到 `backend/models/` 目录：
+> 
+> **模型下载：** [models.zip](https://pan.baidu.com/s/1yYtbyZfwG2OxYrePwGGtlw?pwd=spjp)
+> - 提取码: `spjp`
+> - 大小: 约 820MB
+> - 解压后将 `models/` 目录放入 `backend/` 文件夹下
 
 ### 两种版本对比
 
-| 特性 | GitHub Pages 静态版 | Flask 本地版 |
+| 特性 | 在线体验版 | 本地部署版 |
 |------|-------------------|-------------|
 | **部署难度** | ⭐ 零配置 | ⭐⭐ 需要 Python |
 | **网络依赖** | 首次需联网下载模型 | 完全离线 |
@@ -93,19 +98,14 @@ python app.py
 
 ```
 ai-image-lab/
-├── models/                              # 图像模型文件（GitHub Pages 版使用）
-│   ├── rvm_resnet50_fp32.onnx           # 抠图 (107MB)
-│   ├── RealESRGAN_x4plus_anime_6B_merged.onnx  # 超分 (67MB)
-│   ├── ddcolor_tiny_int8.onnx            # 上色 (57MB)
-│   └── codeformer_fp16_float.onnx        # 修复 (96MB)
 ├── backend/
 │   ├── app.py                            # Flask 后端
 │   ├── requirements.txt                  # Python 依赖
-│   ├── models/                           # 本地模型文件（Flask 版使用）
-│   │   ├── rvm_resnet50_fp32.onnx
-│   │   ├── RealESRGAN_x4plus_anime_6B_merged.onnx
-│   │   ├── ddcolor_tiny_int8.onnx
-│   │   ├── codeformer_fp16_float.onnx
+│   ├── models/                           # 模型文件存放位置
+│   │   ├── rvm_resnet50_fp32.onnx        # 抠图 (107MB)
+│   │   ├── RealESRGAN_x4plus_anime_6B_merged.onnx  # 超分 (67MB)
+│   │   ├── ddcolor_tiny_int8.onnx        # 上色 (57MB)
+│   │   ├── codeformer_fp16_float.onnx    # 修复 (96MB)
 │   │   └── qwen2.5-0.5b-instruct/       # LLM 模型（含 tokenizer）
 │   │       ├── config.json
 │   │       ├── tokenizer.json
@@ -131,6 +131,8 @@ ai-image-lab/
 ├── LICENSE                               # MIT 开源协议
 └── README.md
 ```
+
+> **模型文件说明：** 所有 AI 模型文件均存放在 `backend/models/` 目录下。如需单独使用图像模型，可从该目录拷贝。由于 GitHub 对大文件的限制，建议使用 Flask 版本进行本地部署，或参考部署文档了解如何配置模型路径。
 
 ---
 

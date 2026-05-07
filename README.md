@@ -44,7 +44,7 @@
 
 **访问地址：**
 ```
-http://www.junchuang.top:12723
+http://www.junchuang.top:5005
 ```
 
 ### 方式二：本地部署版（推荐开发）
